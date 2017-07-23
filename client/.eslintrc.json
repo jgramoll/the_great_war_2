@@ -1,0 +1,25 @@
+{
+  "extends": "standard",
+  "plugins": [
+    "chai-friendly",
+    "react",
+    "standard",
+    "promise",
+    "mocha"
+  ],
+  "globals": {
+    "expect": true,
+    "fetch": true
+  },
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "no-unused-expressions": 0,
+    "no-array-constructor": 0,
+    "chai-friendly/no-unused-expressions": 2,
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "mocha/no-exclusive-tests": "error"
+  }
+}

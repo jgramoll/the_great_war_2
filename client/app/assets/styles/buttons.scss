@@ -1,0 +1,17 @@
+.btn {
+  width: 10rem;
+  height: 3rem;
+
+  border: 1px solid black;
+  border-radius: 10rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: white;
+  background: #106613;
+  text-transform: uppercase;
+
+  &:hover {
+    background: #3c35f2;
+  }
+}

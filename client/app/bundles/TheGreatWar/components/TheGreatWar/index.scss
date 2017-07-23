@@ -1,0 +1,13 @@
+.game-list {
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5rem;
+
+  &__new-game {
+    composes: btn from 'assets/styles/buttons.scss';
+
+    line-height: 3rem;
+    float: right;
+  }
+}

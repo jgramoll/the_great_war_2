@@ -1,0 +1,25 @@
+.new-game-form {
+  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  label {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+  }
+
+  &__name-input {
+    width: 14rem;
+  }
+
+  &__create-game-error {
+    color: red
+  }
+
+  &__submit {
+    composes: btn from 'assets/styles/buttons.scss';
+
+    float: right;
+    margin-top: 2rem;
+  }
+}
