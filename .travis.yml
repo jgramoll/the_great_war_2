@@ -2,4 +2,5 @@ language: java
 sudo: false # faster builds
 
 after_success:
+  - gradle jacocoTestReport
   - bash <(curl -s https://codecov.io/bash)
