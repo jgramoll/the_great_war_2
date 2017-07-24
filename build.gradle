@@ -17,6 +17,7 @@ buildscript {
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'kotlin-jpa'
+apply plugin: 'jacoco'
 apply plugin: 'org.springframework.boot'
 
 version = '0.0.1-SNAPSHOT'
@@ -26,6 +27,15 @@ compileKotlin {
 }
 compileTestKotlin {
 	kotlinOptions.jvmTarget = "1.8"
+}
+
+jacocoTestReport {
+    reports {
+        csv.enabled true
+        html.enabled true
+        xml.enabled true
+    }
+    dependsOn test
 }
 
 repositories {
