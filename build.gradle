@@ -31,11 +31,22 @@ compileTestKotlin {
 
 jacocoTestReport {
     reports {
-        csv.enabled true
+        csv.enabled false
         html.enabled true
         xml.enabled true
     }
     dependsOn test
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 1.0
+            }
+        }
+    }
+    dependsOn check
 }
 
 repositories {
@@ -43,7 +54,7 @@ repositories {
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
+	compile("org.springframework.boot:spring-boot-starter")
 	compile("org.springframework.boot:spring-boot-starter-web")
   compile("org.springframework.boot:spring-boot-starter-data-rest")
 	compile("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -51,6 +62,6 @@ dependencies {
   compile("com.h2database:h2")
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-  testCompile "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+  testCompile("org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}")
 }

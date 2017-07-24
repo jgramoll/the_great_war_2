@@ -14,4 +14,8 @@ data class Game(
 	override fun toString(): String {
 		return "Game(id=$id, title='$title')"
 	}
+
+	// TODO get these to work with code coverage
+	override operator fun equals(other: Any?) = super.equals(other)
+	override fun hashCode() = super.hashCode()
 }

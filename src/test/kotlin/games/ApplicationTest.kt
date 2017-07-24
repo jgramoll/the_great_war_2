@@ -15,16 +15,16 @@ class ApplicationTests {
 	@Autowired
 	lateinit var restTemplate: TestRestTemplate
 
-	// @Test
-	// fun findAll() {
-	// 	val content = """[{"firstName":"Jack","lastName":"Bauer","id":1},{"firstName":"Chloe","lastName":"O'Brian","id":2},{"firstName":"Kim","lastName":"Bauer","id":3},{"firstName":"David","lastName":"Palmer","id":4},{"firstName":"Michelle","lastName":"Dessler","id":5}]"""
-	// 	println("hi bro")
-	// 	println(restTemplate.getForEntity("/", String::class.java).body)
-	// 	assertEquals(content, restTemplate.getForEntity("/", String::class.java).body)
-	// }
-
 	@Test
-	 fun test() {
-         restTemplate.getForObject("/", String::class.java)
-     }
+	fun test() {
+		//TODO real test
+    restTemplate.getForObject("/", String::class.java)
+  }
+}
+
+class MainTests {
+	@Test
+	fun mainTest() {
+    main(emptyArray())
+  }
 }
