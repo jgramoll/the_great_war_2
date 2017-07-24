@@ -1,5 +1,5 @@
 # The Great War
-
+[![codecov](https://codecov.io/gh/jgramoll/the_great_war_2/branch/master/graph/badge.svg)](https://codecov.io/gh/jgramoll/the_great_war_2)
 
 ## Technologies
 
