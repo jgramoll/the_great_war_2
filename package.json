@@ -2,11 +2,9 @@
   "name": "the_great_war",
   "private": true,
   "scripts": {
-    "postinstall": "cd client && yarn install",
+    "lint": "cd client && ./node_modules/.bin/eslint '!(coverage)/**/*.+(js|jsx)' --ignore-pattern 'app/libs/i18n/**/*'",
     "test": "cd client && yarn install && ./node_modules/.bin/karma start --single-run",
-    "test:debug": "cd client && yarn install && ./node_modules/.bin/karma start",
-    "coveralls": "cd client && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "lint": "cd client && ./node_modules/.bin/eslint '!(coverage)/**/*.+(js|jsx)' --ignore-pattern 'app/libs/i18n/**/*'"
+    "codecov": "cd client && yarn codecov"
   },
   "cacheDirectories": [
     "node_modules",
