@@ -12,7 +12,7 @@ const config = {
   devtool: 'inline-source-map',
 
   plugins: [
-    new webpack.ProvidePlugin({ 'Promise': 'promise-polyfill' }),
+    new webpack.ProvidePlugin({ 'Promise': 'promise-polyfill' })
   ],
 
   resolve: baseConfig.resolve,
