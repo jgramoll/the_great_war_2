@@ -1,4 +1,5 @@
 language: java
+sudo: false
 
 addons:
   postgresql: "9.4"
@@ -22,6 +23,6 @@ script:
   - gradle jacocoTestCoverageVerification
 
 after_success:
-  - 'yarn run codecov' -cF javascript
+  - yarn run codecov -cF javascript
   - gradle jacocoTestReport
   - bash <(curl -s https://codecov.io/bash) -cF java
