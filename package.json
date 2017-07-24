@@ -4,6 +4,7 @@
   "scripts": {
     "lint": "cd client && ./node_modules/.bin/eslint '!(coverage)/**/*.+(js|jsx)' --ignore-pattern 'app/libs/i18n/**/*'",
     "test": "cd client && yarn install && ./node_modules/.bin/karma start --single-run",
+    "test:debug": "cd client && yarn install && ./node_modules/.bin/karma start",
     "codecov": "cd client && yarn codecov"
   },
   "cacheDirectories": [

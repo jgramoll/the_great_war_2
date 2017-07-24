@@ -62,9 +62,11 @@ describe('NewGame::actions::gameListActionCreators', function () {
 
     it('posts game content', function () {
       const games = [{id: '1'}]
-      sinonSuite.server.respondWith('GET', '/games',
+      const response = { embedded: { games } }
+
+      sinonSuite.server.respondWith('GET', '/api/games',
         [200, { 'Content-Type': 'application/json' },
-          JSON.stringify(games)])
+          JSON.stringify(response)])
 
       const subject = Subject.fetchGames(intl)
       return sinonSuite.store.dispatch(subject).then(() => {
@@ -80,7 +82,7 @@ describe('NewGame::actions::gameListActionCreators', function () {
 
     catchAndSetError(
       sinonSuite,
-      ['GET', '/games'],
+      ['GET', '/api/games'],
       Subject.fetchGames(intl),
       [
         { type: actionTypes.SET_IS_FETCHING },

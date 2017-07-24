@@ -1,4 +1,3 @@
-import ReactOnRails from 'react-on-rails'
 import 'whatwg-fetch'
 
 import { camelizeKeys, decamelizeKeys } from 'humps'
@@ -18,10 +17,10 @@ function send (method, path, body) {
   return fetch(path, {
     method,
     credentials: 'include',
-    headers: ReactOnRails.authenticityHeaders({
+    headers: {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'application/json'
-    }),
+    },
     body: formatBody(body)
   }).then(function (response) {
     if (response.ok) {

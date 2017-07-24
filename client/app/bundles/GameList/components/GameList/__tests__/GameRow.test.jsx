@@ -7,8 +7,11 @@ import { Router, Route, createMemoryHistory } from 'react-router'
 
 describe('GameList::components::GameList::GameRow', function () {
   const game = {
-    name: 'Best Game',
-    gameType: 'demo'
+    title: 'Best Game',
+    gameType: 'demo',
+    links: {
+      self: ''
+    }
   }
 
   const selectGame = sinon.stub()
@@ -24,7 +27,7 @@ describe('GameList::components::GameList::GameRow', function () {
     </Router>
   )
 
-  Array('name', 'gameType').forEach(function (field) {
+  Array('title').forEach(function (field) {
     it(`renders game ${field}`, function () {
       expect(drill(subject).has('h2', m.hasText(game[field]))).to.be.true
     })
@@ -32,7 +35,7 @@ describe('GameList::components::GameList::GameRow', function () {
 
   describe('selecting game', function () {
     it('calls selectGame', function () {
-      drill(subject).find('a', m.hasText(game.name)).click()
+      drill(subject).find('a', m.hasText(game.title)).click()
       sinon.assert.calledWith(selectGame, game)
     })
   })
