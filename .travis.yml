@@ -20,6 +20,7 @@ install:
 script:
   - yarn run lint
   - yarn run test
+  - gradle -v
   - gradle jacocoTestCoverageVerification
 
 after_success:
