@@ -5,7 +5,7 @@
     "postinstall": "cd client && yarn install",
     "test": "cd client && yarn install && ./node_modules/.bin/karma start --single-run",
     "test:debug": "cd client && yarn install && ./node_modules/.bin/karma start",
-    "coveralls": "cd client && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "codecov": "cd client && yarn codecov",
     "lint": "cd client && ./node_modules/.bin/eslint '!(coverage)/**/*.+(js|jsx)' --ignore-pattern 'app/libs/i18n/**/*'"
   },
   "cacheDirectories": [

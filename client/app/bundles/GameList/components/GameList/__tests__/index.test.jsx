@@ -9,15 +9,18 @@ describe('GameList::components::GameList', function () {
   const games = [
     {
       id: '1',
-      name: 'First Game'
+      name: 'First Game',
+      links: { self: { href: '1' } }
     },
     {
       id: '2',
-      name: 'Best Game'
+      name: 'Best Game',
+      links: { self: { href: '2' } }
     },
     {
       id: '3',
-      name: 'Worst Game'
+      name: 'Worst Game',
+      links: { self: { href: '3' } }
     }
   ]
   const intlProvider = new IntlProvider({locale: 'en'})
