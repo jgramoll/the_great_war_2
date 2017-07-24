@@ -20,10 +20,9 @@ install:
 script:
   - yarn run lint
   - yarn run test
-  - gradle -v
-  - gradle jacocoTestCoverageVerification
+  - ./gradlew jacocoTestCoverageVerification
 
 after_success:
   - yarn run codecov -cF javascript
-  - gradle jacocoTestReport
+  - ./gradlew jacocoTestReport
   - bash <(curl -s https://codecov.io/bash) -cF java
