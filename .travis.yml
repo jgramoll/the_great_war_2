@@ -24,6 +24,7 @@ install:
 script:
   - yarn run lint
   - yarn run test
+  - yarn run build
   - ./gradlew check
 
 after_success:
