@@ -20,6 +20,10 @@ describe('NewGame::reducers::gameListReducer', function () {
   ).forEach(setsState)
 
   Array(
+    { type: 'CLEAR_IS_FETCHING', prop: 'isFetching' }
+  ).forEach((item) => resetsState(item.prop, { type: item.type }))
+
+  Array(
     {
       successType: actionTypes.FETCH_GAMES_SUCCESS,
       successParam: { games },

@@ -8,14 +8,21 @@ import { Link } from 'react-router'
 import { defaultMessages } from 'libs/i18n/default'
 
 const GameDetails = createReactClass({
+  // TODO should this be somewhere else?
+  componentDidMount () {
+    const { game, fetchGame, params: { id: gameUrl } } = this.props
+    if (!game) fetchGame(atob(gameUrl), this.props.intl)
+  },
+
   render () {
     const { intl, game } = this.props
+    if (!game) return null
 
     return (
       <div>
         <Header intl={intl} />
-        <h1 className={css.gameTitle}>{game.name}</h1>
-        <Link to={`/the_great_war/${game.id}`}>
+        <h1 className={css.gameTitle}>{game.title}</h1>
+        <Link to={`/the_great_war/${btoa(game.links.self.href)}`}>
           {intl.formatMessage(defaultMessages.join)}
         </Link>
       </div>
@@ -25,7 +32,7 @@ const GameDetails = createReactClass({
 
 GameDetails.propTypes = {
   intl: intlShape.isRequired,
-  game: gameSchema.isRequired
+  game: gameSchema
 }
 
 export default injectIntl(GameDetails)

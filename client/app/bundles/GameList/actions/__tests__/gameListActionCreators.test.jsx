@@ -20,6 +20,15 @@ describe('NewGame::actions::gameListActionCreators', function () {
     })
   })
 
+  describe('fetchGameSuccess', function () {
+    const game = {id: '1'}
+
+    returnsCorrectHash(Subject.fetchGameSuccess(game), {
+      type: actionTypes.FETCH_GAME_SUCCESS,
+      game
+    })
+  })
+
   describe('fetchGamesSuccess', function () {
     const games = [{id: '1'}]
 
@@ -57,10 +66,44 @@ describe('NewGame::actions::gameListActionCreators', function () {
     })
   })
 
+  describe('fetchGame', function () {
+    const sinonSuite = initSinonSuite(this, {autoRespond: true})
+    const game = {id: '1'}
+    const gameUrl = `/api/games/${game.id}`
+
+    it('gets game content', function () {
+      sinonSuite.server.respondWith('GET', gameUrl,
+        [200, { 'Content-Type': 'application/json' },
+          JSON.stringify(game)])
+
+      const subject = Subject.fetchGame(gameUrl, intl)
+      return sinonSuite.store.dispatch(subject).then(() => {
+        expect(sinonSuite.store.getActions()).to.eql([
+          { type: actionTypes.SET_IS_FETCHING },
+          { type: actionTypes.SELECT_GAME, game },
+          { type: actionTypes.CLEAR_IS_FETCHING }
+        ])
+      })
+    })
+
+    catchAndSetError(
+      sinonSuite,
+      ['GET', gameUrl],
+      Subject.fetchGame(gameUrl, intl),
+      [
+        { type: actionTypes.SET_IS_FETCHING },
+        {
+          type: actionTypes.FETCH_GAMES_FAILURE,
+          error: 'Oops, something went wrong'
+        }
+      ]
+    )
+  })
+
   describe('fetchGames', function () {
     const sinonSuite = initSinonSuite(this, {autoRespond: true})
 
-    it('posts game content', function () {
+    it('gets games content', function () {
       const games = [{id: '1'}]
       const response = { embedded: { games } }
 

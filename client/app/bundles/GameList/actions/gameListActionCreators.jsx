@@ -9,9 +9,22 @@ export function setIsFetching () {
   }
 }
 
+export function clearIsFetching () {
+  return {
+    type: actionTypes.CLEAR_IS_FETCHING
+  }
+}
+
 export function setIsSaving () {
   return {
     type: actionTypes.SET_IS_SAVING
+  }
+}
+
+export function fetchGameSuccess (game) {
+  return {
+    type: actionTypes.FETCH_GAME_SUCCESS,
+    game: game
   }
 }
 
@@ -47,6 +60,21 @@ export function selectGame (game) {
   return {
     type: actionTypes.SELECT_GAME,
     game
+  }
+}
+
+export function fetchGame (gameUrl, intl) {
+  return (dispatch) => {
+    dispatch(setIsFetching())
+    return requestsManager.get(gameUrl)
+      .then(result => {
+        dispatch(selectGame(result))
+        dispatch(clearIsFetching())
+      })
+      .catch(_error => {
+        const message = intl.formatMessage(defaultMessages.somethingWentWrong)
+        dispatch(fetchGamesFailure(message))
+      })
   }
 }
 

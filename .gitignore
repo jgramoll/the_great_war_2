@@ -6,3 +6,4 @@ build
 client/coverage
 client/node_modules
 the_great_war_2.iml
+out

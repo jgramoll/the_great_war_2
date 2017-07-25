@@ -83,4 +83,5 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}")
+    testCompile("org.seleniumhq.selenium:selenium-java")
 }
