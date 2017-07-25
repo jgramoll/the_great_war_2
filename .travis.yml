@@ -20,7 +20,7 @@ install:
 script:
   - yarn run lint
   - yarn run test
-  - ./gradlew jacocoTestCoverageVerification
+  - ./gradlew check
 
 after_success:
   - yarn run codecov -cF javascript
