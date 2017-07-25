@@ -33,7 +33,7 @@ class GamesAcceptanceTest {
     }
 
     @After
-    fun teardown() = driver.quit()
+    fun teardown() = driver??.quit()
 
     @Test
     fun testGameListLink() {
