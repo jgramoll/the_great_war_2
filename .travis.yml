@@ -26,7 +26,6 @@ script:
   - yarn run test
   - yarn run build
   - ./gradlew check
-  - cat 'file:///home/travis/build/jgramoll/the_great_war_2/build/reports/tests/test/index.html'
 
 after_success:
   - ./gradlew jacocoTestReport
