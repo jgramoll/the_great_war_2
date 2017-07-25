@@ -22,6 +22,8 @@ install:
   - npm install
 
 script:
+  - which google-chrome-stable
+  - which chromedriver
   - yarn run lint
   - yarn run test
   - yarn run build
