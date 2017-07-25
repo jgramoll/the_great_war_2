@@ -34,13 +34,8 @@ class GamesAcceptanceTest {
 
     @Before
     fun setupTest() {
-        try {
-            driver = ChromeDriver()
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
-        }
-        catch (e: Throwable) {
-            println("error with setup test: $e")
-        }
+        driver = ChromeDriver()
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
     }
 
     @After
