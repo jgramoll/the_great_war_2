@@ -1,9 +1,7 @@
 package games
 
-import org.junit.After
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
+import io.github.bonigarcia.wdm.ChromeDriverManager
+import org.junit.*
 import org.junit.runner.RunWith
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
@@ -27,9 +25,17 @@ class GamesAcceptanceTest {
     @LocalServerPort
     var serverPort: Int = 0
 
+    companion object {
+        @BeforeClass
+        fun setupClass() {
+            ChromeDriverManager.getInstance().setup()
+        }
+    }
+
     @Before
     fun setupTest() {
         driver = ChromeDriver()
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
     }
 
     @After
@@ -61,6 +67,6 @@ class GamesAcceptanceTest {
 
          driver.get(href)
          Assert.assertEquals(href, driver.currentUrl)
-        //  Assert.assertEquals(gameName, driver.findElement(By.xpath("//h1")).text)
+         Assert.assertEquals(gameName, driver.findElement(By.xpath("//h1")).text)
     }
 }
