@@ -87,7 +87,3 @@ dependencies {
     testCompile("org.seleniumhq.selenium:selenium-chrome-driver")
     testCompile("io.github.bonigarcia:webdrivermanager:1.7.1")
 }
-
-test {
-    testLogging.showStandardStreams = true
-}

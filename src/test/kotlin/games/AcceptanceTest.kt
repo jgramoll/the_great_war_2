@@ -1,7 +1,11 @@
 package games
 
 import io.github.bonigarcia.wdm.ChromeDriverManager
-import org.junit.*
+import org.junit.After
+import org.junit.Assert
+import org.junit.Before
+import org.junit.BeforeClass
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
@@ -44,17 +48,8 @@ class GamesAcceptanceTest {
 
     @Test
     fun testGameListLink() {
-        println("serverPort ${serverPort}")
-
-        driver.get("http://localhost:$serverPort/webpack/main-core.js")
-        println("driver.pageSource ${driver.pageSource}")
-        
-        driver.get("http://localhost:$serverPort/api/games")
-        println("driver.pageSource ${driver.pageSource}")
-        
         //TODO paths variables
         driver.get("http://localhost:$serverPort/games")
-        println("driver.pageSource ${driver.pageSource}")
 
         val gameName = "First"
         val link = driver.findElement(By.linkText(gameName))
@@ -68,15 +63,15 @@ class GamesAcceptanceTest {
 
     @Test
     fun testGameDetailsFetch() {
-         driver.get("http://localhost:$serverPort/games")
+        driver.get("http://localhost:$serverPort/games")
 
-         //TODO get link from api
-         val gameName = "First"
-         val link = driver.findElement(By.linkText(gameName))
-         val href = link.getAttribute("href")
+        //TODO get link from api
+        val gameName = "First"
+        val link = driver.findElement(By.linkText(gameName))
+        val href = link.getAttribute("href")
 
-         driver.get(href)
-         Assert.assertEquals(href, driver.currentUrl)
-         Assert.assertEquals(gameName, driver.findElement(By.xpath("//h1")).text)
+        driver.get(href)
+        Assert.assertEquals(href, driver.currentUrl)
+        Assert.assertEquals(gameName, driver.findElement(By.xpath("//h1")).text)
     }
 }
