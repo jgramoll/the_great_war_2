@@ -27,6 +27,7 @@ class GamesAcceptanceTest {
 
     companion object {
         @BeforeClass
+        @JvmStatic
         fun setupClass() {
             ChromeDriverManager.getInstance().setup()
         }
