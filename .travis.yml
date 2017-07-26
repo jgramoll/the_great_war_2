@@ -20,9 +20,10 @@ install:
 script:
   - yarn run lint
   - yarn run test
+  - ./gradlew testClasses
   - yarn run build
   - ls build/resources/main/static/webpack
-  - ./gradlew check
+  - ./gradlew test
   - cat /home/travis/build/jgramoll/the_great_war_2/build/reports/tests/test/index.html
   - cat /home/travis/build/jgramoll/the_great_war_2/build/reports/tests/test/classes/games.GamesAcceptanceTest.html
 
