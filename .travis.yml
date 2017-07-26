@@ -4,11 +4,7 @@ jdk:
 
 addons:
   postgresql: "9.4"
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: stable
 
 before_install:
   - "export DISPLAY=:99.0"
@@ -24,6 +20,8 @@ install:
 script:
   - yarn run lint
   - yarn run test
+  - ./gradlew testClasses
+  - yarn run build
   - ./gradlew check
 
 after_success:

@@ -12,8 +12,8 @@ const GameRow = createReactClass({
       <li className={css['game-row']}>
         <h2>
           <Link className={css['game-row__title']}
-            to={game.links.self.href}
-            onClick={this._setSelectedGame}
+            to={`/games/${btoa(game.links.self.href)}`}
+            onClick={this.setSelectedGame}
           >
             {game.title}
           </Link>
@@ -22,7 +22,7 @@ const GameRow = createReactClass({
     )
   },
 
-  _setSelectedGame () {
+  setSelectedGame () {
     const { selectGame, game } = this.props
     selectGame(game)
   }

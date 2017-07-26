@@ -9,7 +9,9 @@
   ],
   "globals": {
     "expect": true,
-    "fetch": true
+    "fetch": true,
+    "atob": true,
+    "btoa": true
   },
   "env": {
     "mocha": true

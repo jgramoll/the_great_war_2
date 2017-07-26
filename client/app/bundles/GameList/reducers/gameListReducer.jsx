@@ -18,6 +18,12 @@ export default function gameListReducer ($$state = $$initialState, action) {
       })
     }
 
+    case actionTypes.CLEAR_IS_FETCHING: {
+      return Object.assign({}, $$state, {
+        isFetching: false
+      })
+    }
+
     case actionTypes.SET_IS_SAVING: {
       return Object.assign({}, $$state, {
         isSaving: true

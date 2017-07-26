@@ -8,7 +8,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    classpath("org.jetbrains.kotlin:kotlin-noarg:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-noarg:${kotlinVersion}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
         classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
     }
@@ -83,4 +83,7 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}")
+    testCompile("org.seleniumhq.selenium:selenium-java")
+    testCompile("org.seleniumhq.selenium:selenium-chrome-driver")
+    testCompile("io.github.bonigarcia:webdrivermanager:1.7.1")
 }

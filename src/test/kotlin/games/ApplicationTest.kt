@@ -5,7 +5,9 @@ import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
+import org.springframework.http.HttpStatus
 import org.springframework.test.context.junit4.SpringRunner
+import kotlin.test.assertEquals
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -17,7 +19,8 @@ class ApplicationTests {
     @Test
     fun test() {
         //TODO real test
-        restTemplate.getForObject("/", String::class.java)
+        val response = restTemplate.getForEntity("/api/games", String::class.java)
+        assertEquals(response.statusCode, HttpStatus.OK)
     }
 }
 
