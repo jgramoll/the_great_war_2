@@ -44,9 +44,16 @@ class GamesAcceptanceTest {
 
     @Test
     fun testGameListLink() {
+        println("serverPort ${serverPort}")
+
+        driver.get("http://localhost:$serverPort/webpack/main-core.js")
+        println("driver.pageSource ${driver.pageSource}")
+        
+        driver.get("http://localhost:$serverPort/api/games")
+        println("driver.pageSource ${driver.pageSource}")
+        
         //TODO paths variables
         driver.get("http://localhost:$serverPort/games")
-        println("serverPort ${serverPort}")
         println("driver.pageSource ${driver.pageSource}")
 
         val gameName = "First"
