@@ -21,9 +21,10 @@ install:
   - npm install -g yarn
   - npm install
 
+before_script:
+  - ln -s /usr/bin/google-chrome-stable /usr/bin/google-chrome
+
 script:
-  - which google-chrome-stable
-  - which chromedriver
   - yarn run lint
   - yarn run test
   - yarn run build
