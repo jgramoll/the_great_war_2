@@ -46,7 +46,8 @@ class GamesAcceptanceTest {
     fun testGameListLink() {
         //TODO paths variables
         driver.get("http://localhost:$serverPort/games")
-        println("lskjfsd ${driver.pageSource}")
+        println("serverPort ${serverPort}")
+        println("driver.pageSource ${driver.pageSource}")
 
         val gameName = "First"
         val link = driver.findElement(By.linkText(gameName))
