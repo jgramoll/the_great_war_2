@@ -62,7 +62,7 @@ class GamesAcceptanceTest {
         link.click()
 
         Assert.assertEquals(href, driver.currentUrl)
-        Assert.assertEquals(gameName, driver.findElement(By.xpath("//h1")).text)
+        Assert.assertNotNull(driver.findElement(By.xpath("//h1[text() = '$gameName']")))
     }
 
     @Test
@@ -73,6 +73,6 @@ class GamesAcceptanceTest {
 
         driver.get(href)
         Assert.assertEquals(href, driver.currentUrl)
-        Assert.assertEquals(gameName, driver.findElement(By.xpath("//h1")).text)
+        Assert.assertNotNull(driver.findElement(By.xpath("//h1[text() = '$gameName']")))
     }
 }
