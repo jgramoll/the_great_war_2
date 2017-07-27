@@ -23,8 +23,6 @@ script:
   - ./gradlew testClasses
   - yarn run build
   - ./gradlew check
-  - cat /home/travis/build/jgramoll/the_great_war_2/build/reports/tests/test/index.html
-  - cat /home/travis/build/jgramoll/the_great_war_2/build/reports/tests/test/classes/games.GamesAcceptanceTest.html
 
 after_success:
   - ./gradlew jacocoTestReport
