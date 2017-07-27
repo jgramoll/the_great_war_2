@@ -41,6 +41,13 @@ class GamesAcceptanceTest {
     fun setupTest() {
         driver = ChromeDriver()
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
+
+        //TODO paths variables
+        driver.get("http://localhost:$serverPort/games")
+
+        //TODO sign in as helper function
+        driver.findElement(By.name("username")).sendKeys("asdf")
+        driver.findElement(By.name("password")).sendKeys("asdf\n")
     }
 
     @After
@@ -48,9 +55,6 @@ class GamesAcceptanceTest {
 
     @Test
     fun testGameListLink() {
-        //TODO paths variables
-        driver.get("http://localhost:$serverPort/games")
-
         val gameName = "First"
         val link = driver.findElement(By.linkText(gameName))
         val href = link.getAttribute("href")
@@ -58,20 +62,17 @@ class GamesAcceptanceTest {
         link.click()
 
         Assert.assertEquals(href, driver.currentUrl)
-        Assert.assertEquals(gameName, driver.findElement(By.xpath("//h1")).text)
+        Assert.assertNotNull(driver.findElement(By.xpath("//h1[text() = '$gameName']")))
     }
 
     @Test
     fun testGameDetailsFetch() {
-        driver.get("http://localhost:$serverPort/games")
-
-        //TODO get link from api
         val gameName = "First"
         val link = driver.findElement(By.linkText(gameName))
         val href = link.getAttribute("href")
 
         driver.get(href)
         Assert.assertEquals(href, driver.currentUrl)
-        Assert.assertEquals(gameName, driver.findElement(By.xpath("//h1")).text)
+        Assert.assertNotNull(driver.findElement(By.xpath("//h1[text() = '$gameName']")))
     }
 }

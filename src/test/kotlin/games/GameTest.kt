@@ -9,7 +9,6 @@ class GameTest {
         val g = Game("title", 1)
         g.toString()
         g.equals(null)
-        g.title
         g.component1()
         g.component2()
         g.copy("a", 1)
