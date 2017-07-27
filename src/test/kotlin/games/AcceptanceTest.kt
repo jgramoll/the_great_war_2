@@ -41,6 +41,13 @@ class GamesAcceptanceTest {
     fun setupTest() {
         driver = ChromeDriver()
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
+
+        //TODO paths variables
+        driver.get("http://localhost:$serverPort/games")
+
+        //TODO sign in as helper function
+        driver.findElement(By.name("username")).sendKeys("asdf")
+        driver.findElement(By.name("password")).sendKeys("asdf\n")
     }
 
     @After
@@ -48,9 +55,6 @@ class GamesAcceptanceTest {
 
     @Test
     fun testGameListLink() {
-        //TODO paths variables
-        driver.get("http://localhost:$serverPort/games")
-
         val gameName = "First"
         val link = driver.findElement(By.linkText(gameName))
         val href = link.getAttribute("href")
@@ -63,9 +67,6 @@ class GamesAcceptanceTest {
 
     @Test
     fun testGameDetailsFetch() {
-        driver.get("http://localhost:$serverPort/games")
-
-        //TODO get link from api
         val gameName = "First"
         val link = driver.findElement(By.linkText(gameName))
         val href = link.getAttribute("href")
