@@ -21,7 +21,7 @@ script:
   - yarn run lint
   - yarn run test
   - ./gradlew testClasses
-  - yarn run build
+  - yarn run build:test
   - ./gradlew check
 
 after_success:

@@ -14,13 +14,13 @@ const NewGame = createReactClass({
         <Header intl={intl} />
         <form className={css['new-game-form']}>
           <h1>{intl.formatMessage(defaultMessages.newGame)}</h1>
-          <label htmlFor="name">
+          <label htmlFor="title">
             {intl.formatMessage(defaultMessages.name)}
           </label>
           <input
-            className={css['new-game-form__name-input']}
-            ref={elm => { this.name = elm } }
-            id="name"
+            className={css['new-game-form__title-input']}
+            ref={elm => { this.title = elm } }
+            id="title"
           />
           <div className={css['new-game-form__create-game-error']}>
             {submitGameError}
@@ -42,10 +42,11 @@ const NewGame = createReactClass({
     const { intl, createGame, submitGameFailure } = this.props
     e.preventDefault()
 
-    const name = this.name.value
-    if (name) {
-      createGame({ name, gameType: 'demo' })
+    const title = this.title.value
+    if (title) {
+      createGame({ title, gameType: 'demo' }, intl)
     } else {
+      //TODO rename this when i18n recompiles
       const error = intl.formatMessage(defaultMessages.missingName)
       submitGameFailure(error)
     }

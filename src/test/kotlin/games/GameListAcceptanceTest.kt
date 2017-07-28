@@ -13,16 +13,14 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.embedded.LocalServerPort
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.test.context.junit4.SpringRunner
 import java.util.concurrent.TimeUnit
 
 @RunWith(SpringRunner::class)
-@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-class GamesAcceptanceTest {
-
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class GameListAcceptanceTest {
     @Autowired
-    private lateinit var restTemplate: TestRestTemplate
+    private lateinit var gameRepository: GameRepository
 
     private lateinit var driver: WebDriver
 
@@ -39,6 +37,8 @@ class GamesAcceptanceTest {
 
     @Before
     fun setupTest() {
+        gameRepository.save(Game("First"))
+
         driver = ChromeDriver()
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS)
 

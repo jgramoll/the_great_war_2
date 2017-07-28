@@ -96,7 +96,7 @@ export function fetchGames (intl) {
 export function createGame (game, intl) {
   return (dispatch) => {
     dispatch(setIsSaving())
-    return requestsManager.post('/games', { game })
+    return requestsManager.post('/api/games', game)
       .then(game => {
         dispatch(submitGameSuccess(game))
         dispatch(push('/games'))

@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "postinstall": "cd client && yarn install",
-    "build": "cd client && yarn build:test",
+    "build": "cd client && yarn build:development",
+    "build:test": "cd client && yarn build:test",
     "test": "cd client && yarn install && ./node_modules/.bin/karma start --single-run",
     "test:debug": "cd client && yarn install && ./node_modules/.bin/karma start",
     "codecov": "cd client && yarn codecov",
