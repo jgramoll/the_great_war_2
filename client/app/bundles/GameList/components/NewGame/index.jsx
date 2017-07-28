@@ -46,7 +46,7 @@ const NewGame = createReactClass({
     if (title) {
       createGame({ title, gameType: 'demo' }, intl)
     } else {
-      //TODO rename this when i18n recompiles
+      // TODO rename this when i18n recompiles
       const error = intl.formatMessage(defaultMessages.missingName)
       submitGameFailure(error)
     }
