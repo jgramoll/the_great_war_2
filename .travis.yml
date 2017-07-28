@@ -22,6 +22,7 @@ script:
   - yarn run test
   - ./gradlew testClasses
   - yarn run build:test
+  - createdb the_great_war_2_test
   - ./gradlew check
 
 after_success:
