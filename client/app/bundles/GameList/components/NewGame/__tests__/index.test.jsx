@@ -24,13 +24,13 @@ describe('GameList::components::NewGame', function () {
     it('calls createGame with name', function () {
       const subject = renderSubject()
 
-      const name = 'Best eva'
-      drill(subject).find('#name').fillIn(name)
+      const title = 'Best eva'
+      drill(subject).find('#title').fillIn(title)
       drill(subject).find('input[type="submit"]').click()
-      sinon.assert.calledWith(subject.props.createGame, { name, gameType: 'demo' })
+      sinon.assert.calledWith(subject.props.createGame, { title, gameType: 'demo' })
     })
 
-    context('no name', function () {
+    context('no title', function () {
       it('calls error function', function () {
         const subject = renderSubject()
 
