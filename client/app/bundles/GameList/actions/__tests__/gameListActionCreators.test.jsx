@@ -143,7 +143,7 @@ describe('NewGame::actions::gameListActionCreators', function () {
     it('posts game content', function () {
       const game = { id: '1' }
 
-      sinonSuite.server.respondWith('POST', '/games',
+      sinonSuite.server.respondWith('POST', '/api/games',
         [200, { 'Content-Type': 'application/json' },
           JSON.stringify(game)])
 

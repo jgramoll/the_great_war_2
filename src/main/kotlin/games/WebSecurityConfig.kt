@@ -12,7 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
-        http
+        //TODO enable csrf again when I figure out why post fails
+        http.csrf().disable()
             .authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
