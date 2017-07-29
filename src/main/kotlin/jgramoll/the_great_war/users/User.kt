@@ -8,6 +8,14 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.Table
 
+/**
+ * User model.
+ *
+ * @property username of this user.
+ * @property password of this user.
+ * @property id of this user.
+ * @constructor Creates an new User.
+ */
 @Entity
 @Table(name = "\"user\"")
 data class User(

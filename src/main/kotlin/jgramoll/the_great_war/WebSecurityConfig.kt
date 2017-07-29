@@ -12,9 +12,20 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 
+/**
+ * Configuration for Security
+ *
+ * All routes require authentication except the login page
+ */
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfig : WebSecurityConfigurerAdapter() {
+
+    /**
+     * Configuration for Security
+     *
+     * All routes require authentication except the login page
+     */
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
         //TODO enable csrf again when I figure out why post fails
@@ -33,12 +44,24 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     @Autowired
     private lateinit var userDetailsService: MyUserDetailsService
 
+    /**
+     * Configure authentication
+     *
+     * This is called on SpringApp startup
+     *
+     * @param AuthenticationManagerBuilder
+     */
     @Autowired
     @Throws(Exception::class)
     fun configureGlobal(auth: AuthenticationManagerBuilder) {
         auth.authenticationProvider(authenticationProvider())
     }
 
+    /**
+     * Create an authentication provider
+     *
+     * @return DoaAuthenticationProvider
+     */
     @Bean
     fun authenticationProvider(): DaoAuthenticationProvider {
         val authProvider = DaoAuthenticationProvider()
@@ -47,6 +70,11 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
         return authProvider
     }
 
+    /**
+     * Return BCryptPasswordEncoder to be used for encoding passwords
+     *
+     * @return PasswordEncoder
+     */
     @Bean
     fun passwordEncoder(): PasswordEncoder {
         return BCryptPasswordEncoder(11)
