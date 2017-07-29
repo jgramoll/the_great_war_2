@@ -1,4 +1,4 @@
-package games
+package jgramoll.the_great_war
 
 import org.junit.Test
 

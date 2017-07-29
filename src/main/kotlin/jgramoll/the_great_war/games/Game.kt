@@ -1,4 +1,4 @@
-package games
+package jgramoll.the_great_war.games
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
