@@ -4,7 +4,8 @@
   "scripts": {
     "postinstall": "cd client && yarn install",
     "build": "cd client && yarn build:development",
-    "build:test": "cd client && yarn build:test && cd .. && cp -Rf build/resources/main/static out/production/resources/static",
+    "build:test": "cd client && yarn build:test",
+    "build:copy": "cp -Rf build/resources/main/static out/production/resources/static",
     "test": "cd client && yarn install && ./node_modules/.bin/karma start --single-run",
     "test:debug": "cd client && yarn install && ./node_modules/.bin/karma start",
     "codecov": "cd client && yarn codecov",
