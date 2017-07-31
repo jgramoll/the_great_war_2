@@ -8,8 +8,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.security.crypto.password.PasswordEncoder
 
+/**
+ * The main application
+ */
 @SpringBootApplication
 class GameApplication {
+
+    /**
+     * Initialize the application
+     */
     @Bean
     open fun init(repository: UserRepository, passwordEncoder: PasswordEncoder) = CommandLineRunner {
         val p = passwordEncoder.encode("asdf")
@@ -17,6 +24,9 @@ class GameApplication {
     }
 }
 
+/**
+ * App entry point. Runs Spring application
+ */
 fun main(args: Array<String>) {
     SpringApplication.run(GameApplication::class.java, *args)
 }
