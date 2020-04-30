@@ -5,7 +5,9 @@
     "build:development": "NODE_ENV=development webpack -w --config webpack.config.js",
     "build:test": "NODE_ENV=test webpack --config webpack.test.config.js",
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
-    "build:clean": "rm -rf '../build/resources/main/static/webpack'"
+    "build:clean": "rm -rf '../build/resources/main/static/webpack'",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "cacheDirectories": [
     "node_modules"
@@ -46,7 +48,8 @@
     "style-loader": "^0.18.2",
     "webpack": "^2.3.3",
     "webpack-manifest-plugin": "^1.1.0",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-runtime": "^6.23.0",
@@ -79,5 +82,6 @@
     "sinon": "^2.3.4",
     "watchify": "^3.9.0",
     "webpack-bundle-analyzer": "^2.8.2"
-  }
+  },
+  "snyk": true
 }
